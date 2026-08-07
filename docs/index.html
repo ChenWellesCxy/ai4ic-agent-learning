@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Welles 的 AI for IC Design & Verification 8 周学习计划：Agent、MCP、SVA、Formal、Waveform Debug 与 AI4IC 项目实践。">
+  <title>AI4IC · 8 Week Learning Dashboard</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="topbar">
+    <a class="brand" href="#roadmap" aria-label="AI4IC 学习计划首页">
+      <span class="brand-mark">A4</span>
+      <span class="brand-copy"><strong>AI4IC</strong><small>Learning Lab</small></span>
+    </a>
+    <nav class="topnav" aria-label="学习计划导航">
+      <button class="nav-item is-active" type="button" data-view="roadmap">路线图</button>
+      <button class="nav-item" type="button" data-view="schedule">每日课表</button>
+      <button class="nav-item" type="button" data-view="resources">资源</button>
+      <button class="nav-item" type="button" data-view="milestones">里程碑</button>
+      <button class="nav-item" type="button" data-view="models">模型知识</button>
+    </nav>
+    <button id="theme-toggle" class="icon-button" type="button" aria-label="切换深浅色主题" title="切换主题">◐</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse-dot"></span> 8 WEEK · 320 HOURS · BUILD IN PUBLIC</p>
+        <h1 id="hero-title">AI for IC Design<br><span>& Verification</span></h1>
+        <p id="hero-subtitle" class="hero-subtitle"></p>
+        <div class="hero-tags" aria-label="学习主线">
+          <span>Agent Engineering</span><span>EDA Tool Calling</span><span>Verification</span><span>Waveform Debug</span>
+        </div>
+      </div>
+
+      <aside class="progress-card" aria-label="学习进度">
+        <div class="progress-kicker">CURRENT PROGRESS</div>
+        <div class="progress-main"><strong id="progress-percent">0%</strong><span id="progress-label">0 / 40 days</span></div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        <div class="progress-stats">
+          <div><span>实际投入</span><strong id="actual-hours">0h</strong></div>
+          <div><span>里程碑</span><strong id="milestone-progress">0 / 8</strong></div>
+        </div>
+        <button id="jump-next" class="primary-button" type="button">打开下一学习日 <span aria-hidden="true">→</span></button>
+        <p id="next-day-label" class="next-label"></p>
+      </aside>
+    </section>
+
+    <section class="metric-strip" aria-label="计划概览">
+      <div><span class="metric-index">01</span><strong>40</strong><span>工作日</span></div>
+      <div><span class="metric-index">02</span><strong>320h</strong><span>计划时长</span></div>
+      <div><span class="metric-index">03</span><strong>2</strong><span>核心作品</span></div>
+      <div><span class="metric-index">04</span><strong>≥30</strong><span>Eval Cases</span></div>
+    </section>
+
+    <section id="roadmap" class="view-panel is-active" data-panel="roadmap">
+      <div class="section-heading">
+        <div><p class="section-no">01 / ROADMAP</p><h2>八周路线图</h2></div>
+        <p>从 Agent 底座一路走到 Full-Custom Waveform Agent。每周都必须留下一个可运行、可验证的交付物。</p>
+      </div>
+      <div id="roadmap-grid" class="roadmap-grid"></div>
+
+      <div class="two-column">
+        <article class="panel-card">
+          <div class="card-heading"><span>DAILY RHYTHM</span><h3>每天 8 小时怎么分</h3></div>
+          <div id="daily-blocks" class="daily-blocks"></div>
+        </article>
+        <article class="panel-card panel-card-accent">
+          <div class="card-heading"><span>EXECUTION RULES</span><h3>执行原则</h3></div>
+          <ol id="execution-rules" class="rule-list"></ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="schedule" class="view-panel" data-panel="schedule" hidden>
+      <div class="section-heading">
+        <div><p class="section-no">02 / DAILY PLAN</p><h2>40 天每日课表</h2></div>
+        <p>展开任意一天查看 Theory / Lab / Project / Review。打卡数据仅保存在当前浏览器，可导出 JSON 带走。</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="schedule-search" type="search" placeholder="搜索主题、任务、交付物…" autocomplete="off"></label>
+        <label class="select-label"><span>Week</span><select id="week-filter"><option value="all">全部 8 周</option></select></label>
+        <label class="select-label"><span>Status</span><select id="status-filter"><option value="all">全部状态</option><option>未开始</option><option>进行中</option><option>完成</option></select></label>
+        <div class="toolbar-spacer"></div>
+        <button id="export-progress" class="secondary-button" type="button">导出进度</button>
+        <button id="import-progress" class="secondary-button" type="button">导入进度</button>
+        <input id="progress-file" type="file" accept="application/json,.json" hidden>
+      </div>
+      <div class="schedule-meta"><span id="schedule-count">40 days</span><span>状态 / 工时 / 笔记会自动保存在本机</span></div>
+      <div id="schedule-list" class="schedule-list"></div>
+      <div id="schedule-empty" class="empty-state" hidden>没有匹配的学习日。换一个 Week、状态或搜索词试试。</div>
+    </section>
+
+    <section id="resources" class="view-panel" data-panel="resources" hidden>
+      <div class="section-heading">
+        <div><p class="section-no">03 / RESOURCES</p><h2>学习资源</h2></div>
+        <p>19 个经过筛选的主教材、官方文档、论文与开源项目。先做必做，再碰选读。</p>
+      </div>
+      <div class="toolbar compact-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="resource-search" type="search" placeholder="搜索资源…" autocomplete="off"></label>
+        <label class="select-label"><span>Priority</span><select id="resource-priority"><option value="all">全部</option></select></label>
+      </div>
+      <div id="resource-grid" class="resource-grid"></div>
+    </section>
+
+    <section id="milestones" class="view-panel" data-panel="milestones" hidden>
+      <div class="section-heading">
+        <div><p class="section-no">04 / MILESTONES</p><h2>项目验收标准</h2></div>
+        <p>目标不是“看完一本书”，而是两个能由 deterministic EDA verifier 证明价值的作品。</p>
+      </div>
+      <div id="milestone-list" class="milestone-list"></div>
+    </section>
+
+    <section id="models" class="view-panel" data-panel="models" hidden>
+      <div class="section-heading">
+        <div><p class="section-no">05 / MODEL MAP</p><h2>模型知识地图</h2></div>
+        <p>只补 Agent / AI4IC 真正需要的模型知识。S 必须掌握，A 工作级理解，B 选读，C 暂缓。</p>
+      </div>
+      <div id="model-map" class="model-map"></div>
+    </section>
+
+    <section class="safety-banner" aria-label="IP 安全提示">
+      <span class="safety-icon">◎</span>
+      <div><strong>PUBLIC-SAFE STUDY SPACE</strong><p>这个网页只使用公开 / 自建数据与电路。不要上传公司的 IP、PDK、spec、log、netlist 或 waveform。</p></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>AI4IC Learning Lab · 2026</span>
+    <span id="source-note">Source: AI4IC 8-week schedule</span>
+  </footer>
+
+  <noscript><div class="noscript">这个学习 Dashboard 需要 JavaScript 才能显示课表内容。</div></noscript>
+  <script src="./schedule-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
