@@ -29,6 +29,15 @@ docs/                        # 静态学习 Dashboard（GitHub Pages 源码）
 - `outputs/ai4ic_8week_schedule/AI4IC_Agent_8Week_Study_Schedule.xlsx` — 8 周全职学习课表
 - `docs/` — Excel 同步生成的静态学习 Dashboard；包含路线图、40 天课表、资源、里程碑和模型知识地图
 
+## AI / Home ↔ Work Sync
+
+- [`AI_REPO_GUIDE.md`](AI_REPO_GUIDE.md) — AI 与人的仓库入口；定义结构、权威数据、读取顺序、IP 边界和同步协议
+- [`sync/INBOX.md`](sync/INBOX.md) — 公司/家里均可通过 GitHub Web 追加的唯一同步入口
+- [`progress/PROGRESS.md`](progress/PROGRESS.md) — 当前学习进度与 next action
+- [`ideas/IDEAS.md`](ideas/IDEAS.md) — AI4IC 想法与实验 backlog
+
+ChatGPT 定时任务只监控 `sync/INBOX.md` 的 Git blob SHA；发生变化时按 [`sync/AUTOMATION_PROMPT.md`](sync/AUTOMATION_PROMPT.md) 做语义分析和跨文件同步，并以 `sync/AI_SYNC_STATE.json` 作为已处理状态标记。
+
 ## Web Dashboard
 
 公开访问地址：
