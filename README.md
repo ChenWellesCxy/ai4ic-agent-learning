@@ -25,6 +25,9 @@ docs/                        # 静态学习 Dashboard（GitHub Pages 源码）
 ```
 
 ## Current Artifact
+- `outputs/digital-verification-16-week/README.md` — 基于 DRAM 全定制验证背景的 16 周 Digital Verification → AI for Verification 学习计划
+- `outputs/digital-verification-16-week/DAILY_CHECKLIST.md` — 16 周执行 Checklist 与验收标准
+
 
 - `outputs/ai4ic_8week_schedule/AI4IC_Agent_8Week_Study_Schedule.xlsx` — 8 周全职学习课表
 - `docs/` — Excel 同步生成的静态学习 Dashboard；包含路线图、40 天课表、资源、里程碑和模型知识地图
