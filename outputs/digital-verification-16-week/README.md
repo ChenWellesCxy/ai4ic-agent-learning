@@ -747,3 +747,11 @@ AI4IC Agent Learning/
 因此最终定位不是“转行成为普通数字验证工程师”，而是：
 
 > **Full-custom DRAM Verification → Digital Verification Methodology → AI for Verification / AI for EDA**
+
+
+## 学习资料
+
+- [RESOURCES.md](./RESOURCES.md) — 按 16 周组织的主资料与 Lab 资源
+- [RESOURCE_LINKS.md](./RESOURCE_LINKS.md) — 官方/高价值资料可点击入口
+
+> 资料不是“收藏清单”：每周只选择与当前 Lab 直接相关的内容，完成 Lab 和验收后再进入下一周。
